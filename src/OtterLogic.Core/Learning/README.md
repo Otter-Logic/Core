@@ -5,7 +5,7 @@ Runtime inference and dataset capture. Training does **not** happen here — see
 
 The intended split:
 
-- `DatasetWriter` — records solver runs (inputs + outputs) to disk for training.
+- `DatasetWriter` — records generated designs (inputs + outputs) for training.
 - `OnnxSurrogate` — loads a `.onnx` from `/models` and evaluates it.
 
 To add inference, reference the ONNX runtime from *this* project only:
