@@ -1,0 +1,27 @@
+name: build
+
+# Build only. Every test boots Rhino through Rhino.Inside, and a hosted runner
+# has neither Rhino nor a licence for one, so `dotnet test` here would fail for
+# reasons unrelated to the change. Run tests locally; CI guards compilation.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: Core
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build
+        run: dotnet build Core/OtterLogic.slnx -c Release
