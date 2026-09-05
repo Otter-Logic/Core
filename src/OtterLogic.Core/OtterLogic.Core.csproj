@@ -4,6 +4,15 @@
     <RootNamespace>OtterLogic.Core</RootNamespace>
     <AssemblyName>OtterLogic.Core</AssemblyName>
     <!-- System.Drawing / Eto are NOT referenced here on purpose: Core stays UI-free -->
+
+    <IsPackable>true</IsPackable>
+    <PackageId>OtterLogic.Core</PackageId>
+    <Description>Shared vocabulary and geometry helpers for the OtterLogic Rhino tools.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Otter-Logic/Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Otter-Logic/Core</RepositoryUrl>
+    <PackageTags>rhino;rhino3d;grasshopper;computational-design</PackageTags>
+
   </PropertyGroup>
 
   <ItemGroup>

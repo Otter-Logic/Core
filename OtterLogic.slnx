@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OtterLogic.Core/OtterLogic.Core.csproj" />
+  </Folder>
+</Solution>
