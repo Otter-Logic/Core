@@ -9,6 +9,16 @@ vocabulary both front-ends read, shared geometry helpers, and tolerance
 conventions. One test keeps it honest — *would a second domain plausibly need
 this?* If no, it belongs in that domain.
 
+| | |
+|---|---|
+| `Sections` | tool group names, read by the Grasshopper ribbon and the Rhino toolbar |
+| `Naming` | `Humanise` turns a PascalCase name into readable text — "WarrenWithVerticals" into "Warren with verticals" |
+
+`Naming` passes the test by a clear margin: every domain grows option enums, and
+both front-ends have to show them — Grasshopper in a right-click menu, Rhino as
+a command-line prompt. Two copies drift into two spellings of the same option,
+which is the exact confusion a shared vocabulary exists to prevent.
+
 The failure mode guarded against is not drift. It is Core becoming a grab-bag,
 or a bottleneck where every domain change needs a Core release first.
 
