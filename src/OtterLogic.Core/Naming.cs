@@ -26,8 +26,14 @@ public static class Naming
     /// Runs of capitals are read as acronyms and kept intact, so "UDLCase"
     /// gives "UDL case" rather than being broken up letter by letter.
     /// </para>
+    /// <para>
+    /// Null and empty both give an empty string. This is display text, so a
+    /// missing name is worth nothing on screen rather than an exception part way
+    /// through drawing a menu — and the signature says so rather than leaving
+    /// callers to find out.
+    /// </para>
     /// </summary>
-    public static string Humanise(string name)
+    public static string Humanise(string? name)
     {
         if (string.IsNullOrEmpty(name)) return string.Empty;
 
