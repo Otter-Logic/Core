@@ -23,6 +23,6 @@ public static class Sections
     /// <summary>Unrolling, nesting, toolpaths.</summary>
     public const string Fabrication = "Fabrication";
 
-    /// <summary>Dataset capture and inference.</summary>
-    public const string Learning = "Learning";
+    /// <summary>Dataset capture, clustering, and inference.</summary>
+    public const string MachineLearning = "Machine Learning";
 }
