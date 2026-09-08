@@ -32,4 +32,17 @@ public static class Sections
 
     /// <summary>Dataset capture, clustering, and inference.</summary>
     public const string MachineLearning = "Machine Learning";
+
+    /// <summary>
+    /// Behaviour classification of structural analysis results.
+    /// <para>
+    /// Its own section rather than a corner of Machine Learning, because the
+    /// split is what a user is here to do. Machine Learning holds the raw
+    /// methods, each exposing every setting, for somebody who wants to drive
+    /// them or reproduce a result their own way. This holds finished tools that
+    /// take analysis output and answer a structural question, with the settings
+    /// already decided.
+    /// </para>
+    /// </summary>
+    public const string SixDofBehaviour = "6DOF Behaviour";
 }
