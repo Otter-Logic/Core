@@ -24,25 +24,43 @@ public static class Sections
     /// <summary>Trusses, frames, and other discrete structural layouts.</summary>
     public const string StructuralForm = "Structural Form";
 
+    /// <summary>
+    /// Tools that act on analysis results rather than producing geometry:
+    /// grouping members by behaviour, sizing, predicting demand.
+    /// <para>
+    /// Separate from <see cref="StructuralForm"/> because that section generates a
+    /// structure and this one answers questions about one that already exists.
+    /// What earns a place here is a tool carrying a structural opinion — it knows
+    /// what a bending moment is. Whatever method it uses lives under
+    /// <see cref="MachineLearning"/>, and a user here should never need to go
+    /// looking for it.
+    /// </para>
+    /// </summary>
+    public const string StructuralDesign = "Structural Design";
+
     /// <summary>Relaxation and equilibrium.</summary>
     public const string FormFinding = "Form Finding";
 
     /// <summary>Unrolling, nesting, toolpaths.</summary>
     public const string Fabrication = "Fabrication";
 
-    /// <summary>Dataset capture, training data, and inference.</summary>
-    public const string MachineLearning = "Machine Learning";
-
     /// <summary>
-    /// Grouping members by how they behave, from a table of numbers.
+    /// The raw methods, for somebody assembling their own pipeline: dataset
+    /// capture, feature preparation, the learning algorithms themselves, and the
+    /// scores that judge them.
     /// <para>
-    /// Its own section rather than a corner of Machine Learning, because it is
-    /// what a user is here to do rather than how it is done. It holds the raw
-    /// methods and the finished tool side by side: the methods for somebody who
-    /// wants to drive them or reproduce a result their own way, the tool for
-    /// somebody who wants the grouping and no opinion about covariance shapes.
-    /// Machine Learning is left for dataset capture and inference.
+    /// Named for the technique because that is what it holds. The sections above
+    /// are named for jobs, and a user who has a job to do should find it there
+    /// without ever opening this one. This is the section for the other kind of
+    /// user — the one who wants to drive a method directly, or reproduce what a
+    /// finished tool did with their own choices.
+    /// </para>
+    /// <para>
+    /// It is one section, not one per paradigm, and stays that way while it fits.
+    /// Order within it comes from <c>GH_Exposure</c>, which groups components by
+    /// pipeline stage — data, features, learning, evaluation — and draws a divider
+    /// between them. Split it only when it genuinely overflows.
     /// </para>
     /// </summary>
-    public const string Clustering = "Clustering";
+    public const string MachineLearning = "Machine Learning";
 }
