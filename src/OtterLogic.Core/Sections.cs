@@ -30,19 +30,19 @@ public static class Sections
     /// <summary>Unrolling, nesting, toolpaths.</summary>
     public const string Fabrication = "Fabrication";
 
-    /// <summary>Dataset capture, clustering, and inference.</summary>
+    /// <summary>Dataset capture, training data, and inference.</summary>
     public const string MachineLearning = "Machine Learning";
 
     /// <summary>
-    /// Behaviour classification of structural analysis results.
+    /// Grouping members by how they behave, from a table of numbers.
     /// <para>
-    /// Its own section rather than a corner of Machine Learning, because the
-    /// split is what a user is here to do. Machine Learning holds the raw
-    /// methods, each exposing every setting, for somebody who wants to drive
-    /// them or reproduce a result their own way. This holds finished tools that
-    /// take analysis output and answer a structural question, with the settings
-    /// already decided.
+    /// Its own section rather than a corner of Machine Learning, because it is
+    /// what a user is here to do rather than how it is done. It holds the raw
+    /// methods and the finished tool side by side: the methods for somebody who
+    /// wants to drive them or reproduce a result their own way, the tool for
+    /// somebody who wants the grouping and no opinion about covariance shapes.
+    /// Machine Learning is left for dataset capture and inference.
     /// </para>
     /// </summary>
-    public const string SixDofBehaviour = "6DOF Behaviour";
+    public const string Clustering = "Clustering";
 }
