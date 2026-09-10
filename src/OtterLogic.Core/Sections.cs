@@ -32,8 +32,8 @@ public static class Sections
     /// structure and this one answers questions about one that already exists.
     /// What earns a place here is a tool carrying a structural opinion — it knows
     /// what a bending moment is. Whatever method it uses lives under
-    /// <see cref="MachineLearning"/>, and a user here should never need to go
-    /// looking for it.
+    /// <see cref="UnsupervisedLearning"/> or its sibling paradigm sections, and a
+    /// user here should never need to go looking for it.
     /// </para>
     /// </summary>
     public const string StructuralDesign = "Structural Design";
@@ -45,9 +45,21 @@ public static class Sections
     public const string Fabrication = "Fabrication";
 
     /// <summary>
-    /// The raw methods, for somebody assembling their own pipeline: dataset
-    /// capture, feature preparation, the learning algorithms themselves, and the
-    /// scores that judge them.
+    /// The steps every learning paradigm shares: dataset capture, feature
+    /// preparation, decomposition, inference. Reserved — nothing ships here yet.
+    /// <para>
+    /// The methods themselves live in a section per paradigm, starting with
+    /// <see cref="UnsupervisedLearning"/>. This one mirrors the MachineLearning
+    /// repo the way those mirror their paradigm repos: what more than one
+    /// paradigm uses sits here rather than being filed under any one of them.
+    /// </para>
+    /// </summary>
+    public const string MachineLearning = "Machine Learning";
+
+    /// <summary>
+    /// The raw unsupervised methods, for somebody assembling their own pipeline:
+    /// clustering, the graphs the graph methods run on, and refinement of a
+    /// labelling. Every setting exposed, no opinion about the data.
     /// <para>
     /// Named for the technique because that is what it holds. The sections above
     /// are named for jobs, and a user who has a job to do should find it there
@@ -56,11 +68,14 @@ public static class Sections
     /// finished tool did with their own choices.
     /// </para>
     /// <para>
-    /// It is one section, not one per paradigm, and stays that way while it fits.
-    /// Order within it comes from <c>GH_Exposure</c>, which groups components by
-    /// pipeline stage — data, features, learning, evaluation — and draws a divider
-    /// between them. Split it only when it genuinely overflows.
+    /// A section per paradigm rather than one for all of machine learning, because
+    /// that is how somebody who wants the raw methods already thinks about them:
+    /// "a clustering" is an unsupervised question before it is anything else, and
+    /// the panel should be where that person looks first. It also mirrors the
+    /// Unsupervised repo exactly, so a component's panel says where its algorithm
+    /// lives. Order within it comes from <c>GH_Exposure</c> — graphs, then
+    /// methods, then refinement, then enum dropdowns — with a divider between each.
     /// </para>
     /// </summary>
-    public const string MachineLearning = "Machine Learning";
+    public const string UnsupervisedLearning = "Unsupervised Learning";
 }
