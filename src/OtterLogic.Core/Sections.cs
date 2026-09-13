@@ -38,6 +38,20 @@ public static class Sections
     /// </summary>
     public const string StructuralDesign = "Structural Design";
 
+    /// <summary>
+    /// Tools that read a structural model <em>before</em> it is analysed:
+    /// geometry and supports only, no forces. Cleaning it up, reading its
+    /// topology and connectivity, and grouping its elements for an assumed
+    /// section size.
+    /// <para>
+    /// Separate from <see cref="StructuralDesign"/> because that section needs
+    /// a solved force and this one runs before there is one. Would answering
+    /// the question need a solved force, or only the geometry, is the line
+    /// between them.
+    /// </para>
+    /// </summary>
+    public const string StructuralAnalysis = "Structural Analysis";
+
     /// <summary>Relaxation and equilibrium.</summary>
     public const string FormFinding = "Form Finding";
 
