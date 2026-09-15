@@ -25,32 +25,22 @@ public static class Sections
     public const string StructuralForm = "Structural Form";
 
     /// <summary>
-    /// Tools that act on analysis results rather than producing geometry:
-    /// grouping members by behaviour, sizing, predicting demand.
+    /// Multipurpose tools for structural engineering, before an analysis and after
+    /// one: reading the structure a model's geometry describes, and grouping
+    /// elements by the six degrees of freedom of data on them.
     /// <para>
     /// Separate from <see cref="StructuralForm"/> because that section generates a
     /// structure and this one answers questions about one that already exists.
-    /// What earns a place here is a tool carrying a structural opinion — it knows
-    /// what a bending moment is. Whatever method it uses lives under
+    /// What earns a place here is a tool that knows what structural data is — a
+    /// stick model, supports, forces beside moments — without hard-coding what any
+    /// one structure or job makes of it. Frames, shells, bridges and gridshells go
+    /// through the same tools, and the user prepares the data for their own purpose
+    /// in their own definition. Whatever method a tool uses lives under
     /// <see cref="UnsupervisedLearning"/> or its sibling paradigm sections, and a
     /// user here should never need to go looking for it.
     /// </para>
     /// </summary>
     public const string StructuralDesign = "Structural Design";
-
-    /// <summary>
-    /// Tools that read a structural model <em>before</em> it is analysed:
-    /// geometry and supports only, no forces. Cleaning it up, reading its
-    /// topology and connectivity, and grouping its elements for an assumed
-    /// section size.
-    /// <para>
-    /// Separate from <see cref="StructuralDesign"/> because that section needs
-    /// a solved force and this one runs before there is one. Would answering
-    /// the question need a solved force, or only the geometry, is the line
-    /// between them.
-    /// </para>
-    /// </summary>
-    public const string StructuralAnalysis = "Structural Analysis";
 
     /// <summary>Relaxation and equilibrium.</summary>
     public const string FormFinding = "Form Finding";
