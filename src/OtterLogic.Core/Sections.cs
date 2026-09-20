@@ -93,4 +93,18 @@ public static class Sections
     /// </para>
     /// </summary>
     public const string UnsupervisedLearning = "Unsupervised Learning";
+
+    /// <summary>
+    /// The raw supervised methods: fit a model to samples whose answer is known,
+    /// predict the answer for samples where it is not, and score how well that went.
+    /// <para>
+    /// A section of its own for the same reason <see cref="UnsupervisedLearning"/>
+    /// has one, and it mirrors the Supervised repo the same way. What is <em>not</em>
+    /// here is the dataset — writing a table, reading it back, splitting it by group
+    /// — which sits under <see cref="MachineLearning"/> because every paradigm
+    /// gathers data before it does anything else. Order within it comes from
+    /// <c>GH_Exposure</c>: methods, then evaluation, then enum dropdowns.
+    /// </para>
+    /// </summary>
+    public const string SupervisedLearning = "Supervised Learning";
 }
