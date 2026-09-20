@@ -45,12 +45,23 @@ public static class Sections
     /// <summary>Relaxation and equilibrium.</summary>
     public const string FormFinding = "Form Finding";
 
-    /// <summary>Unrolling, nesting, toolpaths.</summary>
+    /// <summary>
+    /// Making the structure: what its connections are and how many kinds there are,
+    /// then unrolling, nesting and toolpaths.
+    /// <para>
+    /// A panel is cut by who reaches for a tool, not by where its code lives. Joint
+    /// Signature and Connection Typology are here because connection detailing is the
+    /// fabricator's question, though their code reads joints with the same machinery
+    /// as the structural tools and lives beside it for now.
+    /// </para>
+    /// </summary>
     public const string Fabrication = "Fabrication";
 
     /// <summary>
     /// The steps every learning paradigm shares: dataset capture, feature
-    /// preparation, decomposition, inference. Reserved — nothing ships here yet.
+    /// preparation, decomposition, inference. Shape Signature is the first of
+    /// them — turning outlines into features is a thing to do before a method,
+    /// not a method.
     /// <para>
     /// The methods themselves live in a section per paradigm, starting with
     /// <see cref="UnsupervisedLearning"/>. This one mirrors the MachineLearning
