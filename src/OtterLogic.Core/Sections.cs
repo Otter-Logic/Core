@@ -58,6 +58,30 @@ public static class Sections
     public const string Fabrication = "Fabrication";
 
     /// <summary>
+    /// Questions asked of a network — which way is cheapest, how much passes through
+    /// here, what falls off if this goes, what has to come first. Nothing in it is
+    /// trained and nothing in it clusters.
+    /// <para>
+    /// Named for a technique, like the learning sections below, and for the same
+    /// reason: it holds raw methods with every setting exposed and no opinion about
+    /// what the nodes are. It is separate from them because its user is not doing
+    /// machine learning. Routes, cut vertices and betweenness began under
+    /// <see cref="UnsupervisedLearning"/>, where somebody ordering a toolpath or
+    /// tracing a circulation route had no reason to look; they moved here when the
+    /// Graphs repo moved out from under MachineLearning, and the panel mirrors that
+    /// repo the way the learning panels mirror theirs.
+    /// </para>
+    /// <para>
+    /// What stays under <see cref="UnsupervisedLearning"/> is what builds a graph
+    /// from samples — Neighbour Graph, Gaussian Affinity — since measuring how alike
+    /// two samples are is a learning question. Order within this section comes from
+    /// <c>GH_Exposure</c>: building a graph and taking one apart, then its
+    /// structure, then routes and flow, then importance.
+    /// </para>
+    /// </summary>
+    public const string Graphs = "Graphs";
+
+    /// <summary>
     /// The steps every learning paradigm shares: dataset capture, feature
     /// preparation, decomposition, inference. Shape Signature is the first of
     /// them — turning outlines into features is a thing to do before a method,
@@ -73,7 +97,7 @@ public static class Sections
 
     /// <summary>
     /// The raw unsupervised methods, for somebody assembling their own pipeline:
-    /// clustering, the graphs the graph methods run on, and refinement of a
+    /// clustering, building the graphs the graph methods run on, and refinement of a
     /// labelling. Every setting exposed, no opinion about the data.
     /// <para>
     /// Named for the technique because that is what it holds. The sections above
