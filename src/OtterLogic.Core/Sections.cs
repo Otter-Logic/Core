@@ -58,6 +58,22 @@ public static class Sections
     public const string Fabrication = "Fabrication";
 
     /// <summary>
+    /// Building the structure once it is designed: the order its pieces go up in,
+    /// and seeing that order happen.
+    /// <para>
+    /// Separate from <see cref="Fabrication"/> because that section makes the pieces
+    /// and this one puts them together on site — a different person, with the model
+    /// finished and the pieces on the lorry. What earns a place here is a tool that
+    /// reasons about construction in general — what must stand before what can be
+    /// lifted onto it — without knowing what kind of structure it is or what any
+    /// piece is called. The reading of the structure it works from lives with the
+    /// structural tools, so the sequence and the analysis can never disagree about
+    /// what rests on what.
+    /// </para>
+    /// </summary>
+    public const string Construction = "Construction";
+
+    /// <summary>
     /// Questions asked of a network — which way is cheapest, how much passes through
     /// here, what falls off if this goes, what has to come first. Nothing in it is
     /// trained and nothing in it clusters.
@@ -131,4 +147,31 @@ public static class Sections
     /// </para>
     /// </summary>
     public const string SupervisedLearning = "Supervised Learning";
+
+    /// <summary>
+    /// The order the sections are read in, left to right: the techniques first,
+    /// then the jobs in the order a project meets them — form, design, making,
+    /// building — and the document last. Grasshopper's own tabs run the same way,
+    /// from Params through Maths and Sets to Display, and a user who has learned
+    /// that habit should find it here.
+    /// <para>
+    /// Domain vocabulary rather than UI, like the names: the Rhino panel lists
+    /// its headings in this order too. Form Finding sits after Structural Form
+    /// because it shapes what that section generates; it shows nowhere until it
+    /// has a tool.
+    /// </para>
+    /// </summary>
+    public static readonly string[] Order =
+    {
+        Graphs,
+        MachineLearning,
+        UnsupervisedLearning,
+        SupervisedLearning,
+        StructuralForm,
+        FormFinding,
+        StructuralDesign,
+        Fabrication,
+        Construction,
+        Document,
+    };
 }
