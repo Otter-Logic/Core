@@ -36,8 +36,8 @@ public static class Sections
     /// one structure or job makes of it. Frames, shells, bridges and gridshells go
     /// through the same tools, and the user prepares the data for their own purpose
     /// in their own definition. Whatever method a tool uses lives under
-    /// <see cref="UnsupervisedLearning"/> or its sibling paradigm sections, and a
-    /// user here should never need to go looking for it.
+    /// <see cref="MachineLearning"/>, and a user here should never need to go
+    /// looking for it.
     /// </para>
     /// </summary>
     public const string StructuralDesign = "Structural Design";
@@ -78,75 +78,43 @@ public static class Sections
     /// here, what falls off if this goes, what has to come first. Nothing in it is
     /// trained and nothing in it clusters.
     /// <para>
-    /// Named for a technique, like the learning sections below, and for the same
+    /// Named for a technique, like <see cref="MachineLearning"/>, and for the same
     /// reason: it holds raw methods with every setting exposed and no opinion about
-    /// what the nodes are. It is separate from them because its user is not doing
-    /// machine learning. Routes, cut vertices and betweenness began under
-    /// <see cref="UnsupervisedLearning"/>, where somebody ordering a toolpath or
-    /// tracing a circulation route had no reason to look; they moved here when the
-    /// Graphs repo moved out from under MachineLearning, and the panel mirrors that
-    /// repo the way the learning panels mirror theirs.
-    /// </para>
-    /// <para>
-    /// What stays under <see cref="UnsupervisedLearning"/> is what builds a graph
-    /// from samples — Neighbour Graph, Gaussian Affinity — since measuring how alike
-    /// two samples are is a learning question. Order within this section comes from
-    /// <c>GH_Exposure</c>: building a graph and taking one apart, then its
-    /// structure, then routes and flow, then importance.
+    /// what the nodes are. It is separate from that section because its user is not
+    /// doing machine learning. Routes, cut vertices and betweenness began in the
+    /// learning panels, where somebody ordering a toolpath or tracing a circulation
+    /// route had no reason to look; they moved here when the Graphs repo moved out
+    /// from under MachineLearning, and the panel mirrors that repo. Order within it
+    /// comes from <c>GH_Exposure</c>: building a graph and taking one apart, then
+    /// its structure, then routes and flow, then importance.
     /// </para>
     /// </summary>
     public const string Graphs = "Graphs";
 
     /// <summary>
-    /// The steps every learning paradigm shares: dataset capture, feature
-    /// preparation, decomposition, inference. Shape Signature is the first of
-    /// them — turning outlines into features is a thing to do before a method,
-    /// not a method.
+    /// One panel for all of machine learning, whatever the paradigm: three cores
+    /// that take data and a method on a wire, the methods that go on that wire, and
+    /// the data steps around them.
     /// <para>
-    /// The methods themselves live in a section per paradigm, starting with
-    /// <see cref="UnsupervisedLearning"/>. This one mirrors the MachineLearning
-    /// repo the way those mirror their paradigm repos: what more than one
-    /// paradigm uses sits here rather than being filed under any one of them.
+    /// Order within it comes from <c>GH_Exposure</c>, which draws a divider between
+    /// tiers: the three cores (cluster, train, predict), then the clustering methods,
+    /// then the learners, then data capture and feature preparation, then enum
+    /// dropdowns. A method component has no data input and outputs nothing but its
+    /// wire, so the core a person reaches for first is the one at the top, and it
+    /// answers with nothing else wired.
+    /// </para>
+    /// <para>
+    /// Named for a technique because its user is assembling a pipeline — the one
+    /// kind of user who wants to choose a method. Every job-named section above
+    /// hides the methods behind a tool, and a user who has a job to do should find
+    /// it there without ever opening this one. It used to be three sections, one per
+    /// paradigm, mirroring the repos; that mirrored a distinction the person writing
+    /// the code cares about and the person using it does not, and left someone who
+    /// wanted to cluster something choosing between panels before they had chosen
+    /// a method.
     /// </para>
     /// </summary>
     public const string MachineLearning = "Machine Learning";
-
-    /// <summary>
-    /// The raw unsupervised methods, for somebody assembling their own pipeline:
-    /// clustering, building the graphs the graph methods run on, and refinement of a
-    /// labelling. Every setting exposed, no opinion about the data.
-    /// <para>
-    /// Named for the technique because that is what it holds. The sections above
-    /// are named for jobs, and a user who has a job to do should find it there
-    /// without ever opening this one. This is the section for the other kind of
-    /// user — the one who wants to drive a method directly, or reproduce what a
-    /// finished tool did with their own choices.
-    /// </para>
-    /// <para>
-    /// A section per paradigm rather than one for all of machine learning, because
-    /// that is how somebody who wants the raw methods already thinks about them:
-    /// "a clustering" is an unsupervised question before it is anything else, and
-    /// the panel should be where that person looks first. It also mirrors the
-    /// Unsupervised repo exactly, so a component's panel says where its algorithm
-    /// lives. Order within it comes from <c>GH_Exposure</c> — graphs, then
-    /// methods, then refinement, then enum dropdowns — with a divider between each.
-    /// </para>
-    /// </summary>
-    public const string UnsupervisedLearning = "Unsupervised Learning";
-
-    /// <summary>
-    /// The raw supervised methods: fit a model to samples whose answer is known,
-    /// predict the answer for samples where it is not, and score how well that went.
-    /// <para>
-    /// A section of its own for the same reason <see cref="UnsupervisedLearning"/>
-    /// has one, and it mirrors the Supervised repo the same way. What is <em>not</em>
-    /// here is the dataset — writing a table, reading it back, splitting it by group
-    /// — which sits under <see cref="MachineLearning"/> because every paradigm
-    /// gathers data before it does anything else. Order within it comes from
-    /// <c>GH_Exposure</c>: methods, then evaluation, then enum dropdowns.
-    /// </para>
-    /// </summary>
-    public const string SupervisedLearning = "Supervised Learning";
 
     /// <summary>
     /// The order the sections are read in, left to right: the techniques first,
@@ -165,8 +133,6 @@ public static class Sections
     {
         Graphs,
         MachineLearning,
-        UnsupervisedLearning,
-        SupervisedLearning,
         StructuralForm,
         FormFinding,
         StructuralDesign,
