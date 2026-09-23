@@ -78,15 +78,17 @@ public static class Sections
     /// here, what falls off if this goes, what has to come first. Nothing in it is
     /// trained and nothing in it clusters.
     /// <para>
-    /// Named for a technique, like <see cref="MachineLearning"/>, and for the same
-    /// reason: it holds raw methods with every setting exposed and no opinion about
-    /// what the nodes are. It is separate from that section because its user is not
-    /// doing machine learning. Routes, cut vertices and betweenness began in the
-    /// learning panels, where somebody ordering a toolpath or tracing a circulation
-    /// route had no reason to look; they moved here when the Graphs repo moved out
-    /// from under MachineLearning, and the panel mirrors that repo. Order within it
-    /// comes from <c>GH_Exposure</c>: building a graph and taking one apart, then
-    /// its structure, then routes and flow, then importance.
+    /// Named for a technique, like <see cref="MachineLearning"/>, and cut the same
+    /// way: one core, OtterPath, takes a graph, a method on a wire, and the sources
+    /// and targets the question is about; each algorithm is a small component that
+    /// outputs nothing but its wire, and with nothing wired the core reads the
+    /// question off what it was given. It is separate from that section because its
+    /// user is not doing machine learning. Routes, cut vertices and betweenness began
+    /// in the learning panels, where somebody ordering a toolpath or tracing a
+    /// circulation route had no reason to look; they moved here when the Graphs repo
+    /// moved out from under MachineLearning. Order within it comes from
+    /// <c>GH_Exposure</c>: the core, then the methods, then building a graph and
+    /// taking one apart.
     /// </para>
     /// </summary>
     public const string Graphs = "Graphs";
