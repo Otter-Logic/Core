@@ -113,13 +113,14 @@ public static class Sections
     public const string Dataset = "Dataset";
 
     /// <summary>
-    /// One panel for all of machine learning, whatever the paradigm: three cores
+    /// One panel for all of machine learning, whatever the paradigm: four cores
     /// that take data and a method on a wire, the methods that go on that wire, and
     /// the data steps around them.
     /// <para>
     /// Order within it comes from <c>GH_Exposure</c>, which draws a divider between
-    /// tiers: the three cores (cluster, train, predict), then the clustering methods,
-    /// then the learners, then enum dropdowns. Getting the data ready is the
+    /// tiers: the four cores (cluster, train, predict, embed), then the clustering
+    /// methods, then the learners, then the embedding methods, then enum dropdowns.
+    /// Getting the data ready is the
     /// <see cref="Dataset"/> section's job, one panel to the left. A method
     /// component has no data input and outputs nothing but its wire, so the core a person reaches for first is the one at the top, and it
     /// answers with nothing else wired.
