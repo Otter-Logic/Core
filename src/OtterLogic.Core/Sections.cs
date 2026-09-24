@@ -94,15 +94,34 @@ public static class Sections
     public const string Graphs = "Graphs";
 
     /// <summary>
+    /// Getting data ready before anything learns from it: a table typed or pasted
+    /// straight onto the canvas, datasets gathered on disk one model at a time and
+    /// read back, and features taken from geometry.
+    /// <para>
+    /// Separate from <see cref="MachineLearning"/> because preparing data is a
+    /// different job from fitting a model to it, done by a different person on a
+    /// different day: whoever collects results from a run of analyses is not
+    /// choosing a clustering method. It began as the data tier at the bottom of the
+    /// Machine Learning panel and moved out in 2026-09 when the Dataset repo arrived
+    /// to hold it. What earns a place here is a tool that knows what a table is —
+    /// rows, named columns, numbers beside names — without knowing what the numbers
+    /// mean or what will be trained on them. Order within it comes from
+    /// <c>GH_Exposure</c>: the table itself, then datasets on disk, then features
+    /// from geometry.
+    /// </para>
+    /// </summary>
+    public const string Dataset = "Dataset";
+
+    /// <summary>
     /// One panel for all of machine learning, whatever the paradigm: three cores
     /// that take data and a method on a wire, the methods that go on that wire, and
     /// the data steps around them.
     /// <para>
     /// Order within it comes from <c>GH_Exposure</c>, which draws a divider between
     /// tiers: the three cores (cluster, train, predict), then the clustering methods,
-    /// then the learners, then data capture and feature preparation, then enum
-    /// dropdowns. A method component has no data input and outputs nothing but its
-    /// wire, so the core a person reaches for first is the one at the top, and it
+    /// then the learners, then enum dropdowns. Getting the data ready is the
+    /// <see cref="Dataset"/> section's job, one panel to the left. A method
+    /// component has no data input and outputs nothing but its wire, so the core a person reaches for first is the one at the top, and it
     /// answers with nothing else wired.
     /// </para>
     /// <para>
@@ -120,7 +139,8 @@ public static class Sections
 
     /// <summary>
     /// The order the sections are read in, left to right: the techniques first,
-    /// then the jobs in the order a project meets them — form, design, making,
+    /// with the data before the learning that consumes it, then the jobs in the
+    /// order a project meets them — form, design, making,
     /// building — and the document last. Grasshopper's own tabs run the same way,
     /// from Params through Maths and Sets to Display, and a user who has learned
     /// that habit should find it here.
@@ -134,6 +154,7 @@ public static class Sections
     public static readonly string[] Order =
     {
         Graphs,
+        Dataset,
         MachineLearning,
         StructuralForm,
         FormFinding,
