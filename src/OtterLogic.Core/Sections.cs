@@ -74,6 +74,22 @@ public static class Sections
     public const string Construction = "Construction";
 
     /// <summary>
+    /// Keeping the building model in step with itself: what changed between two
+    /// versions of it, and — as they arrive — its classes, marks and schedules.
+    /// <para>
+    /// Separate from <see cref="Document"/> because that section points at what is
+    /// in the Rhino document, and this one reasons about a model as a set of
+    /// elements that carry information, wherever they came from. What earns a place
+    /// here is a tool that treats an element as something with an identity to keep
+    /// — the same beam across two versions, the same mark on a drawing and in a
+    /// schedule — without needing to know what kind of structure it belongs to.
+    /// Its methods are pairing and clustering, kept out of sight: the person here
+    /// is reconciling a model, not choosing an algorithm.
+    /// </para>
+    /// </summary>
+    public const string BIM = "BIM";
+
+    /// <summary>
     /// Questions asked of a network — which way is cheapest, how much passes through
     /// here, what falls off if this goes, what has to come first. Nothing in it is
     /// trained and nothing in it clusters.
@@ -141,8 +157,9 @@ public static class Sections
     /// <summary>
     /// The order the sections are read in, left to right: the techniques first,
     /// with the data before the learning that consumes it, then the jobs in the
-    /// order a project meets them — form, design, making,
-    /// building — and the document last. Grasshopper's own tabs run the same way,
+    /// order a project meets them — form, design, making, building, then keeping
+    /// the model in step as it changes — and the document last. Grasshopper's own
+    /// tabs run the same way,
     /// from Params through Maths and Sets to Display, and a user who has learned
     /// that habit should find it here.
     /// <para>
@@ -162,6 +179,7 @@ public static class Sections
         StructuralDesign,
         Fabrication,
         Construction,
+        BIM,
         Document,
     };
 }
